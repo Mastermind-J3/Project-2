@@ -14,7 +14,7 @@ pipeline {
                        //withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerpwd')]) {
                        //bat 'docker login -u mastermindj3 -p $dockerpwd'
                        bat 'docker login -u mastermindj3 -p J3@docker'
-                       }
+                       //}
                     }
                 }
             }
