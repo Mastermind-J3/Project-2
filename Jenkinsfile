@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('docker-cred-jatin')
+	}
         stages{
             stage('Jatin - Build docker image'){
                 steps{
@@ -13,8 +16,9 @@ pipeline {
                     script{
                        //withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerpwd')]) {
                        //bat 'docker login -u mastermindj3 -p $dockerpwd'
-                       bat 'docker login -u mastermindj3 -p J3@docker'
+                       //bat 'docker login -u mastermindj3 -p J3@docker'
                        //}
+                       bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                     }
                 }
             }
