@@ -11,7 +11,9 @@ pipeline {
             stage('Jatin - Login to DockerHub'){
                 steps{
                     script{
-                       bat 'docker login -u mastermindj3 -p J3@docker'
+                       withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerpwd')]) {
+                       bat "docker login -u mastermindj3 -p '${dockerpwd}'"
+                       }
                     }
                 }
             }
