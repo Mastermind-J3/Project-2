@@ -12,8 +12,7 @@ pipeline {
                 steps{
                     script{
                        withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerpwd')]) {
-                       bat 'echo ${dockerpwd}'
-                       bat 'docker login -u mastermindj3 -p $dockerpwd'
+                       bat 'echo $dockerpwd | docker login -u mastermindj3 --password-stdin'
                        }
                     }
                 }
