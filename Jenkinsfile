@@ -18,7 +18,7 @@ pipeline {
                        //bat 'docker login -u mastermindj3 -p $dockerpwd'
                        //bat 'docker login -u mastermindj3 -p J3@docker'
                        //}
-                       bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                       sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                     }
                 }
             }

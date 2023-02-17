@@ -5,3 +5,5 @@ ADD Jatin.py /
 RUN pip install pystrich
 
 CMD [ "python", "./Jatin.py" ]
+
+RUN python Jatin.py
